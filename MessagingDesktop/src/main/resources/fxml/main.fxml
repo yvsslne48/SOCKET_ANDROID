@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.messaging.desktop.controllers.MainController"
+      spacing="10" style="-fx-padding: 20;">
+
+    <!-- Connection Panel -->
+    <VBox spacing="10" style="-fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 10;">
+        <Label text="Server Connection" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+        <HBox spacing="10">
+            <Label text="Server Address:" minWidth="100"/>
+            <TextField fx:id="serverAddressField" prefWidth="200"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Port:" minWidth="100"/>
+            <TextField fx:id="portField" prefWidth="100"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Your User ID:" minWidth="100"/>
+            <TextField fx:id="userIdField" prefWidth="200"/>
+        </HBox>
+
+        <Button fx:id="connectButton" text="Connect" onAction="#handleConnect"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+    </VBox>
+
+    <!-- Chat Panel -->
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <Label text="Chat" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+        <HBox spacing="10">
+            <Label text="Receiver ID:" minWidth="100"/>
+            <TextField fx:id="receiverIdField" prefWidth="200"/>
+        </HBox>
+
+        <!-- Message Display Area -->
+        <TextArea fx:id="messageArea" editable="false" VBox.vgrow="ALWAYS"
+                  style="-fx-border-color: #cccccc; -fx-border-radius: 5;"/>
+
+        <!-- Message Input -->
+        <HBox spacing="10">
+            <TextField fx:id="messageField" HBox.hgrow="ALWAYS"
+                       promptText="Type your message..."
+                       onAction="#handleSendMessage"/>
+            <Button fx:id="sendButton" text="Send" onAction="#handleSendMessage"
+                    style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        </HBox>
+
+        <!-- Action Buttons -->
+        <HBox spacing="10">
+            <Button fx:id="sendImageButton" text="Send Image" onAction="#handleSendImage"
+                    style="-fx-background-color: #FF9800; -fx-text-fill: white;"/>
+            <Button fx:id="sendFileButton" text="Send File" onAction="#handleSendFile"
+                    style="-fx-background-color: #9C27B0; -fx-text-fill: white;"/>
+            <Button fx:id="audioCallButton" text="Audio Call" onAction="#handleAudioCall"
+                    style="-fx-background-color: #00BCD4; -fx-text-fill: white;"/>
+            <Button fx:id="videoCallButton" text="Video Call" onAction="#handleVideoCall"
+                    style="-fx-background-color: #E91E63; -fx-text-fill: white;"/>
+        </HBox>
+    </VBox>
+</VBox>
